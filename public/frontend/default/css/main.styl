@@ -1,0 +1,200 @@
+@import 'bootstylus'
+@import 'nib'
+@import 'nib/gradients'
+@import fonts
+@import icons
+
+$grey-color = #f4f4f4
+$primaryEndColor = hsl(hue($primaryButtonBackground) + 20, saturation($primaryButtonBackground), lightness($primaryButtonBackground));
+
+p[class^="text-"],
+p[class*=" text-"]
+	display inline
+	padding 0 5px
+	vertical-align middle
+	&:before
+		font-family FontAwesome
+		padding 5px
+
+.img-polaroid
+	border-radius 6px
+	background $grey-color
+
+p.text-success
+	color $successText
+	&:before
+		content: "\f058"
+
+p.text-error
+	color $errorText
+	&:before
+		content: "\f057"
+
+p.text-warning
+	color $warningText
+	&:before
+		content: "\f071"
+
+p.text-info
+	color $infoText
+	&:before
+		content: "\f05a"
+
+body.login-page
+	background-color $grey-color 
+	#header
+		text-align center
+		padding 30px 
+	#content
+		position relative
+		margin 10px 0
+		text-align center
+		form
+			background-color white
+			text-align left
+			display inline-block
+			border-radius 5px
+			border 1px solid darken($grey-color,2)
+			box-shadow 0 0 5px lighten($grey-color,20)
+			padding 30px
+
+
+table.table tr .action-column
+	text-align center
+	width 100px
+	a 
+		vertical-align middle
+	form
+		display inline-block
+		vertical-align middle
+		margin 0
+table.table tbody td
+	vertical-align middle
+
+#header
+	padding 10px
+	color darken($grey-color,10)
+	position relative
+	h1 
+		display inline-block
+		padding 0 5px
+		vertical-align baseline
+
+	a
+		display inline-block
+		font-size 16px
+		padding 0 5px
+		vertical-align baseline
+	span
+		display inline-block
+		font-size 14px
+		padding 0 5px
+		color darken($grey-color,30)
+		vertical-align baseline
+
+	.user-actions
+		position absolute
+		right 20px
+		top 50%
+		margin-top -10px
+		h2
+			font-size 13px
+			line-height normal
+			display inline-block
+			margin 0
+			vertical-align 0
+			&:after
+				content: "|"
+				padding 0 0 0 5px
+				font-weight normal
+				font-size 12px
+				color darken($grey-color,10)
+				vertical-align 0
+		[class^="icon-"],
+		[class*=" icon-"]
+			vertical-align middle
+
+		a
+			&.facebook-login, &.foursquare-login
+				font-size 12px
+				vertical-align baseline
+				[class^="icon-"]
+					vertical-align baseline
+			&:hover
+				text-decoration none
+
+
+
+#footer
+	text-align center
+	position fixed
+	bottom 0
+	left 0
+	right 0
+	padding 10px 0
+
+#content
+	hr 
+		margin-top 0
+		clear both
+	h2.legend-like
+		font-size 19.5px
+		line-height 36px
+		font-weight normal
+	.action-panel 
+		float right
+		.separation
+			color $grey-color
+			padding 0 5px 
+		form 
+			display inline-block
+			margin 0
+		.btn
+			display inline-block
+
+div.form-modal, div.form-place-modal
+	position absolute
+	right 20px
+	top 100px
+	border-radius 5px
+	background-color white
+	border 1px solid darken($grey-color,10)
+	border-top 3px solid lighten($primaryEndColor,5)
+	padding 20px
+	form
+		text-align center
+		overflow hidden
+		position relative
+		margin 0
+		figure
+			display block
+			margin 18px auto
+			min-width 100px
+			min-heigth 100px
+			img
+				max-width 100px
+				max-heigth 100px
+		fieldset
+			overflow hidden
+			vertical-align middle
+			input
+				display block
+				margin 10px 0
+				&[type=file]
+					position absolute
+					bottom -100px
+					height 0
+	&:before
+		display block
+		content ""
+		width 0
+		height 0
+		border-left 12px solid transparent
+		border-right 12px solid transparent
+		border-bottom 12px solid $primaryEndColor
+		position absolute
+		top -12px
+		right 32px
+
+div.form-place-modal
+	right 125px

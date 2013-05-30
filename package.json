@@ -1,0 +1,32 @@
+{
+	"name": "Nodepress",
+	"description": "Bruno de Queiroz",
+	"version": "0.0.2",
+	"private": "true",
+	"author": "Bruno de Queiroz <creativelikeadog@gmail.com>",
+	"dependencies": {
+		"express":"latest",
+		"socket.io":"latest",
+		"socket.io-client":"latest",
+		"connect-mongo": "latest",
+		"connect-flash": "latest",
+		"mongoose": "latest",
+		"lodash":"latest",
+		"i18n": "latest",
+		"jade": "latest",
+		"stylus": "latest",
+		"nib": "latest",
+		"bootstylus": "latest",
+		"async": "latest",
+		"passport": "latest",
+		"passport-local": "latest",
+		"passport-facebook": "latest",
+		"passport-twitter": "latest",
+		"passport-github": "latest",
+		"passport-google-oauth": "latest"
+	},
+	"engines": {
+		"node": "0.10.5",
+		"npm":  "1.2.18"
+	}
+}

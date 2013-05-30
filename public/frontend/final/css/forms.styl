@@ -1,0 +1,110 @@
+@import 'nib'
+@import 'nib/gradients'
+global-reset()
+@import fonts
+@import icons
+
+
+// typography
+$orange-color = #f60
+$white-color = #fff
+$thin-weight = 200
+$light-weight = 400
+$medium-weight = 500
+$bold-weight = 700
+
+.orange-text
+	color $orange-color
+.upprcase
+	text-transform uppercase
+
+
+body
+	font-family 'Chevin', sans-serif
+	height 100%
+	color rgb($white-color)
+	background transparent
+	font-size 14px
+	font-weight $medium-weight
+
+	#event-form
+		text-align center
+		li
+			line-height 32px
+			margin-bottom 10px
+			float left
+			&.event-image
+				visibility hidden
+				position absolute
+			&.event-location-holder
+				position relative
+				display none
+				.locations-available
+					position absolute
+					top 34px
+					right 0
+					width 248px
+					height 135px
+					overflow-y auto
+					background rgb(82,37,131)
+					border 1px solid $orange-color
+					li
+						float none
+						line-height 27px
+						text-align left
+						margin-bottom 0
+						padding-left 15px
+						cursor default
+						&:hover
+							background $orange-color
+			label
+				float left
+				width 160px
+				text-align right
+				padding-right 10px
+			input[type='text']
+				background rgba($white-color,0.3)
+				border 0
+				color $white-color
+				width 250px
+				padding 8px 10px
+				float left
+				&#event-start-date,
+				&#event-end-date
+					width 92px
+			select
+				background rgba($white-color,0.3)
+				border 0
+				color $white-color
+				float left
+				option
+					background-color rgba($white-color,0.3)
+			textarea
+				background rgba($white-color,0.3)
+				border 0
+				color $white-color
+				float left
+				width 250px
+				height 80px
+				padding 5px 10px
+			&.promo-terms
+				width 300px
+				padding-left 166px
+				input[type='checkbox']
+					float left
+				label
+					padding-left 8px
+					width auto
+					line-height 1.3
+					strong
+						color $orange-color
+			&.submit-button
+				width 100%
+				text-align center
+				button
+					cursor pointer
+					background none
+					border 0
+					font-size 18px
+					text-transform uppercase
+					color $orange-color

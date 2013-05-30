@@ -1,0 +1,22 @@
+extends layout/layout
+
+block content
+  form.form-horizontal(method="post",action="/login")
+    legend Login
+      if ( message != "")
+        p.text-warning= message
+          br
+    fieldset.control-group
+      label.control-label(for="inputUsername") #{lang("Username")}
+      div.controls
+        input#inputUsername(type="text", name="username", placeholder="#{lang("Username")}")
+
+    fieldset.control-group
+      label.control-label(for="inputPassword") #{lang("Password")}
+      div.controls
+        input#inputPassword(type="password", name="password", placeholder="#{lang("Password")}")
+
+
+    fieldset.control-group
+      div.controls
+        button.btn.btn-primary(type="submit") #{lang("Sign in")}

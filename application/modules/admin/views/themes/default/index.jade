@@ -1,0 +1,64 @@
+extends layout/layout
+
+block scripts
+	script(type="text/javascript", src='/#{theme}/js/modules/events.js')
+
+
+block breadcrumb
+	- var plural = name.pluralize()
+	/
+	a(href = "/#{plural}", title="#{lang(plural.capitalize())}")= lang(plural.capitalize())
+
+block content
+	- var plural = name.pluralize()
+	div.container-fluid
+		div.action-panel
+			form.form-search
+				input(type="text" , name="query" , value="#{query}" , placeholder="#{lang("Search by name")}" , class="input-medium search-query")
+				&nbsp;
+				button(type="submit" , class="btn") #{lang("Search")}
+		h2.legend-like= lang(plural.capitalize())
+			include includes/messages
+		- var i = 0, j = 0;
+		hr
+		table.table.table-striped
+			thead
+				tr
+					- var count = 0;
+					- for( j = fields.length ; i < j ; i++ ) {
+						th #{lang(fields[ i ].capitalize())}
+						- count++;
+					- }
+					th.action-column
+					- count++;
+
+			tbody
+				- var objects = locals[ plural ];
+				- if ( objects.length > 0 ) {
+					- for( i = 0, j = objects.length ; i < j ; i++ ) {
+						- var object  = objects[ i ];
+						tr
+							- for( var k =0, y = fields.length ; k < y ; k++ ) {
+								- if( fields[ k ] == "address.name" )
+									td #{object.address.name}
+								- else
+									td #{object[ fields[ k ] ]}
+							- }
+
+							td.action-column
+								a.btn.btn-success(href="/#{plural}/#{object.id}")
+									i.icon-edit
+								&nbsp;
+								- if ( !locals.cantRemove ) {
+								form(method='POST', action="/#{plural}/#{object.id}")
+									input(type="hidden", name="_method", value="DELETE")
+									button.btn.btn-danger(type="submit")
+										i.icon-remove
+								- }
+					- }
+				- } else {
+						tr
+							td(colspan="#{count}") #{lang("No "+plural+" found")}
+				- }
+
+		include includes/pagination

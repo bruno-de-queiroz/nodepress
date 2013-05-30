@@ -1,0 +1,132 @@
+@keyframes pump-loading-animation
+	0%
+		transform scale(1.0)
+	25%
+		transform scale(1.1)
+	50%
+		transform scale(0.9)
+	75%
+		transform scale(1.1)
+	100%
+		transform scale(1.0)
+
+@keyframes pump-button-animation
+	0%
+		transform scale(1.0)
+	60%
+		transform scale(1.1)
+	80%
+		transform scale(0.9)
+	100%
+		transform scale(1.0)
+		color white
+
+aside#loader
+	background rgb(48,0,118)
+	position fixed
+	top 0
+	right 0
+	left 0
+	bottom 0
+	z-index 1000
+	header
+		position relative
+		height 100%
+		h1
+			position absolute
+			font-weight $bold-weight
+			font-size 130px
+			text-align center
+			z-index 94
+			left 50%
+			width 900px
+			margin-left -440px
+			top 50%
+			margin-top -67px
+			.fuck
+				left 100px
+				position absolute
+			.suck
+				left 91px
+				position absolute
+			strong
+				margin-left 250px
+			em
+				font-weight $light-weight
+				.switchLetter
+					width 174px
+		button
+			position absolute
+			background url('../images/bg_btn_loader.png') no-repeat
+			border 0
+			width 89px
+			height 90px
+			top 65%
+			left 50%
+			margin-left -40.5px
+			z-index 93
+			font-weight $bold-weight
+			font-size 34px
+			cursor pointer
+			padding-right 10px
+			padding-bottom 8px
+			&:before
+				animation none
+				content "GO"
+				font-family 'Chevin'
+				color $white-color
+	img
+		width 100%
+		height 100%
+		&#frame
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left 0
+			z-index 91
+		&#movie
+			position absolute
+			top 0
+			right 0
+			bottom 0
+			left 0
+			z-index 92
+
+.loading aside#loader
+	button
+		display block
+		padding-bottom 12px
+		animation pump-loading-animation .5s infinite
+		&:before
+			content url('../images/ico_spinner_loader.gif')
+			font-size 22px
+			color darken($purple-color,5)
+	img#movie
+		visibility hidden
+
+body:not(.loading) aside#loader
+	button
+		&:hover
+			background url('../images/bg_btn_loader.png') no-repeat
+			animation pump-button-animation .3s ease-in-out
+			animation-fill-mode forwards
+
+aside#loader
+	.fuck
+		top 0
+		opacity 1
+		transition all .3s ease-in-out
+	.suck
+		top 103px
+		opacity 0
+		transition all .3s ease-in-out
+aside#loader.suck
+	.fuck
+		top -103px
+		opacity 0
+		transition all .3s ease-in-out
+	.suck
+		top 0
+		opacity 1
+		transition all .3s ease-in-out

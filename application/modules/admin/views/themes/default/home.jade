@@ -1,0 +1,82 @@
+extends layout/layout
+
+block content
+
+	div.container-fluid
+		h1 Olhaí
+		div.btn-toolbar
+			div.btn-group
+				a.btn(href="#")
+					i.icon-align-left
+				a.btn(href="#")
+					i.icon-align-left
+				a.btn(href="#")
+					i.icon-align-left
+				a.btn(href="#")
+					i.icon-align-left
+		div.btn-group
+			a.btn.btn-primary(href="#")
+				i.icon-user.icon-white
+				|  User
+			a.btn.btn-primary.dropdown-toggle(data-toggle="dropdown",href="#")
+				span.caret
+			ul.dropdown-menu
+				li
+					a(href="#")
+						i.icon-pencil
+						| Edit
+				li
+					a(href="#")
+						i.icon-trash
+						| Delete
+				li
+					a(href="#")
+						i.icon-ban-circle
+						| Ban
+				li.divider
+				li
+					a(href="#")
+						i.i
+						| Make admin
+		div.control-group
+			label.control-label(for="inputIcon") Email address
+			div.controls
+				div.input-prepend
+					span.add-on
+						i.icon-envelope
+					input.span2#inputIcon(type="text")
+
+		form
+			fieldset
+				legend Legend
+				label Label name
+				input(type="text" , placeholder="Type something…")
+				span.help-block Example block-level help text here.
+				label(class="checkbox")
+					input(type="checkbox") Check me out
+				button(type="submit",class="btn") Submit
+
+		form.form-search
+			input(type="text" , class="input-medium search-query")
+			button(type="submit" , class="btn") Search
+
+		table.table.table-striped.table-bordered
+			caption Test of caption
+			thead
+				tr
+					th #
+					th Type
+					th Date
+					th Status
+			tbody
+				- for(var i = 0; i< 10; i++) {
+				tr
+					td #{i + 1}
+					td TB - Monthly
+					td 01/04/2012
+					td Approved
+				- }
+			tfoot
+				tr
+					td(colspan=4)
+						small test

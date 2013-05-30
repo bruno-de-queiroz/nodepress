@@ -1,0 +1,40 @@
+/*
+ * jQuery FlexSlider v2.0
+ */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;}
+.flexslider .slides img {display: block;}
+
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+.flexslider {position: relative; zoom: 1;}
+.flexslider .slides {zoom: 1;}
+.flexslider .slides li {height:800px;}
+
+.carousel li {margin-right: 5px;}
+
+/* Direction Nav */
+
+
+/* Control Nav */
+.flex-control-nav {width: 97%; position: absolute; top: 45px;right:3%;text-align: right;}
+.flex-control-nav li {margin: 0 13px; display: inline-block; zoom: 1; *display: inline;}
+.flex-control-paging li a {width: 25px; height: 25px; display: block; background: #65140e; background: rgba(101,20,14); cursor: pointer; text-indent: -9999px; -webkit-border-radius: 20px; -moz-border-radius: 20px; -o-border-radius: 20px; border-radius: 20px;}
+.flex-control-paging li a:hover { background: #ff6600; background: rgba(255,102,0); }
+.flex-control-paging li a.flex-active { background: #ff6600; background: rgba(255,102,0); cursor: default; }
+
+
+@media screen and (max-width: 860px) {
+  .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
+  .flex-direction-nav .flex-next {opacity: 1; right: 0;}
+}

@@ -1,0 +1,9 @@
+header#header
+	h1= appName
+	- if(req.user) {
+		div.user-actions
+			h2.user-name= req.user.name
+			a(href="/logout",title="#{lang("Logout")}")
+				i.icon-off
+	- }
+	block breadcrumb

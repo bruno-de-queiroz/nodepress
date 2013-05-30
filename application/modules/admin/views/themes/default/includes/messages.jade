@@ -1,0 +1,8 @@
+- var message, i , k = 0, text = "";
+- for( i in messages ) {
+	- message = messages[ i ], k = 0;
+	- for( ; k < message.length ; k++ ) {
+		- text = message[k];
+		p(class="text-#{i}")= text
+	- }
+- }

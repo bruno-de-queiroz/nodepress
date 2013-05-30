@@ -1,0 +1,45 @@
+extends layout/layout
+
+block content
+	- var plural = name.pluralize();
+	div.container-fluid
+		form.form-horizontal(method="post")
+			block title
+			- var klass = ""
+			if (!object.isNew)
+				input(type="hidden", name="_method", value="PUT")
+			- while(fields.length > 0) {
+				- var i = fields.shift(), type = /password/.test(i) ? 'password' : ( /time$/.test(i) ? 'date' : 'text' );
+				- if(locals.errors && errors.hasOwnProperty(i))
+					- klass = "error";
+				- else
+					- klass = "";
+				- var id = "input" + i.capitalize()
+				fieldset.control-group(class=klass)
+					label.control-label(for="#{id}") #{lang(i.capitalize().unormalize())}
+					div.controls
+						input(id="#{id}" , type="#{type}", name="#{i}", value="#{object[i]}", placeholder="#{lang(i.capitalize().unormalize())}")
+						- if(locals.errors && errors.hasOwnProperty(i))
+							span.help-inline #{lang(errors[i].type)}
+
+			- }
+			fieldset.control-group
+				div.controls
+					- if ( locals.message )
+						p.text-warning
+							i.icon-warning-sign
+							|  #{message}
+							br
+					button.btn.btn-large.btn-primary(type="submit")
+						i.icon-ok
+						- var label = lang("Create")
+						if (!object.isNew)
+							- label =  lang("Save")
+						| &nbsp;&nbsp;#{label}
+					&nbsp;
+					if (!object.isNew && !locals.cantRemove )
+						button.btn.btn-danger(type="button")
+							i.icon-remove
+							|   #{lang("Remove")}
+						&nbsp;
+					button.btn(type="button") #{lang("Cancel")}

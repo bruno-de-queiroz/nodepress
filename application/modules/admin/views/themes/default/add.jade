@@ -1,0 +1,12 @@
+extends form
+
+block breadcrumb
+	- var plural = name.pluralize();
+	/
+	a(href = "/#{plural}", title="#{lang(plural.capitalize())}")= lang(plural.capitalize())
+	/
+	span= lang("Create")
+
+block title
+	legend #{lang("Create")}
+		include includes/messages
