@@ -3,7 +3,6 @@ module.exports = function ( app , passport ) {
 		index : {
 			mapping : "/"
 			, method : "get"
-			, filters : []
 			, render : function( req , res ){
 				res.render( 'home', {
 					title: 'Events'
@@ -15,7 +14,6 @@ module.exports = function ( app , passport ) {
 		, login : {
 			mapping : "/login"
 			, method : "get"
-			, filters : []
 			, render: function( req, res ) {
 				res.render( 'login', {
 					title: res.locals.lang( 'Login' )
@@ -34,11 +32,15 @@ module.exports = function ( app , passport ) {
 			}
 		}
 
-		, logout = function ( req , res ){
-			req.logout();
-			req.session.destroy();
-			res.redirect('/login');
-		};
+		, logout :{
+			mapping : "/logout"
+			, method: "post"
+			, render: function ( req , res ){
+				req.logout();
+				req.session.destroy();
+				res.redirect('/login');
+			};
+		}
 
 	});
 
